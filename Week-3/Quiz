@@ -1,0 +1,33 @@
+## Question 1
+## Take a look at the 'iris' dataset that comes with R. The data can be loaded with the code:
+library(datasets)
+data(iris)
+## A description of the dataset can be found by running
+?iris
+## There will be an object called 'iris' in your workspace. In this dataset, what is the mean 
+## of 'Sepal.Length' for the species virginica? (Please only enter the numeric result and nothing else.)
+
+# Solution:
+
+tapply(iris$Sepal.Length,iris$Species,mean)
+
+
+#here is an alternative solution:
+
+Library(datasets)
+data(iris)
+  x <- subset(iris,Species=="virginica",select=1)
+   #or  x <- iris[which(iris$Species=="virginica"),1)
+   
+    mean(x)
+  
+## Question 4
+## Continuing with the 'mtcars' dataset from the previous Question, 
+## what is the absolute difference between the average horsepower of 4-cylinder cars and 
+## the average horsepower of 8-cylinder cars?
+
+## Solution:
+x <- subset(mtcars, cyl==4, select=hp)
+y <- subset(mtcars, cyl==8, select=hp)
+z <- abs(mean(x$hp)-mean(y$hp))
+print(z)
